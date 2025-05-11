@@ -1,7 +1,7 @@
 {
   "id": "fiches-soumini",
   "title": "Fiches Soumini",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "compatibility": {
     "minimum": "12",
     "verified": "12"
@@ -41,6 +41,6 @@
     "custom-script.js"
   ],
   "url" : "https://github.com/Zaitazu/fiches-soumini",
-  "manifest": "https://github.com/Zaitazu/fiches-soumini/releases/download/2.0.1/module.json",
-  "download" : "https://github.com/Zaitazu/fiches-soumini/releases/download/2.0.1/fiches-soumini.zip"
+  "manifest": "https://github.com/Zaitazu/fiches-soumini/releases/download/2.0.2/module.json",
+  "download" : "https://github.com/Zaitazu/fiches-soumini/releases/download/2.0.2/fiches-soumini.zip"
 }
