@@ -1,0 +1,46 @@
+{
+  "id": "fiches-soumini",
+  "title": "Fiches Soumini",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "12",
+    "verified": "12"
+  },
+  "authors": [
+    {
+      "name": "Zaitazu",
+      "discord": "zaitazu",
+      "flags": {}
+    }
+  ],
+  "packs": [
+    {
+      "name": "templatesautres",
+      "label": "Templates_autres",
+      "path": "packs/templatesautres",
+      "type": "Item",
+      "system": "custom-system-builder",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "templatesacteurs",
+      "label": "Templates_acteurs",
+      "path": "packs/templatesacteurs",
+      "type": "Actor",
+      "system": "custom-system-builder",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    }
+  ],
+  "esmodules": [
+    "custom-script.js"
+  ],
+  "url" : "https://github.com/Zaitazu/fiches-soumini",
+  "manifest": "",
+  "download" : ""
+}
