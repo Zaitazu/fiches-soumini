@@ -41,6 +41,6 @@
     "custom-script.js"
   ],
   "url" : "https://github.com/Zaitazu/fiches-soumini",
-  "manifest": "",
-  "download" : ""
+  "manifest": "https://github.com/Zaitazu/fiches-soumini/releases/download/1.0.0/module.json",
+  "download" : "https://github.com/Zaitazu/fiches-soumini/releases/download/1.0.0/fiches-soumini.zip"
 }
