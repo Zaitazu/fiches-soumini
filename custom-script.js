@@ -47,7 +47,7 @@ Hooks.on('combatStart', () => {
 })
 
 Hooks.on('combatTurn', () => {
-  const autoattacks = game.settings.get("custom-script", "AutoAttacks");
+  const autoattacks = game.settings.get("fiches-soumini", "AutoAttacks");
   console.log('Combat Turn');
   const pj_template = game.actors.getName('_PJ_Template').id;
   const acteur = canvas.tokens.get(game.combat.nextCombatant.tokenId).actor;
@@ -69,7 +69,7 @@ Hooks.on('combatTurn', () => {
   })
 
 Hooks.on('combatRound', () => {
-    const autoattacks = game.settings.get("custom-script", "AutoAttacks");
+  const autoattacks = game.settings.get("fiches-soumini", "AutoAttacks");
   console.log('Combat Turn');
   const pj_template = game.actors.getName('_PJ_Template').id;
   const acteur = canvas.tokens.get(game.combat.nextCombatant.tokenId).actor;

@@ -1,0 +1,7 @@
+2025/05/11-01:48:44.313 3ffc Recovering log #12
+2025/05/11-01:48:44.317 3ffc Delete type=0 #12
+2025/05/11-01:48:44.317 3ffc Delete type=3 #10
+2025/05/11-01:49:31.242 afc Level-0 table #17: started
+2025/05/11-01:49:31.242 afc Level-0 table #17: 0 bytes OK
+2025/05/11-01:49:31.243 afc Delete type=0 #15
+2025/05/11-01:49:31.243 afc Manual compaction at level-0 from 'undefined' @ 72057594037927935 : 1 .. 'undefined' @ 0 : 0; will stop at (end)
