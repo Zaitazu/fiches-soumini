@@ -1,3 +1,14 @@
+import { registerSettings } from "./scripts/settings.js"
+
+/* ------------------------------------ */
+/* Initialize system				          	*/
+/* ------------------------------------ */
+Hooks.once('setup', async function() {
+	console.log("Initializing Fiches soumini setup");
+  registerSettings();
+});
+
+
 Hooks.on('combatStart', () => {
   console.log('Début de combat !');
   const pj_template = game.actors.getName('_PJ_Template').id;
@@ -36,6 +47,7 @@ Hooks.on('combatStart', () => {
 })
 
 Hooks.on('combatTurn', () => {
+  const autoattacks = game.settings.get("custom-script", "AutoAttacks");
   console.log('Combat Turn');
   const pj_template = game.actors.getName('_PJ_Template').id;
   const acteur = canvas.tokens.get(game.combat.nextCombatant.tokenId).actor;
@@ -47,16 +59,18 @@ Hooks.on('combatTurn', () => {
   else{
     console.log('PNJ');
     acteur.roll('start_turn',{postMessage:true});
-    setTimeout(() => {
-      acteur.reloadTemplate();
-      acteur.roll('atqs',{postMessage:false});
-    }, 500);
-    
+    if(autoattacks){
+      setTimeout(() => {
+        acteur.reloadTemplate();
+        acteur.roll('atqs',{postMessage:false});
+      }, 500);
+    }
   }
   })
 
 Hooks.on('combatRound', () => {
-  console.log('Combat Round');
+    const autoattacks = game.settings.get("custom-script", "AutoAttacks");
+  console.log('Combat Turn');
   const pj_template = game.actors.getName('_PJ_Template').id;
   const acteur = canvas.tokens.get(game.combat.nextCombatant.tokenId).actor;
 
@@ -67,10 +81,12 @@ Hooks.on('combatRound', () => {
   else{
     console.log('PNJ');
     acteur.roll('start_turn',{postMessage:true});
-    setTimeout(() => {
-      acteur.reloadTemplate();
-      acteur.roll('atqs',{postMessage:false});
-    }, 500);
+    if(autoattacks){
+      setTimeout(() => {
+        acteur.reloadTemplate();
+        acteur.roll('atqs',{postMessage:false});
+      }, 500);
+    }
   }
 })
 

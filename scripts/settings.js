@@ -1,0 +1,13 @@
+export const registerSettings = function() {
+  /**
+   * use auto attacks pnj
+   */
+  game.settings.register("custom-script", "AutoAttacks", {
+    name: "Auto Attaques bestiaire",
+    hint: "Lance automatiquement les attaques des mobs au début de leurs tours s'ils sont vivants",
+    scope: "world",
+    type: Boolean,
+    config: true,
+    default: false
+  });
+}
