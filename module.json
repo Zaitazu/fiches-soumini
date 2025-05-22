@@ -35,12 +35,22 @@
         "PLAYER": "OBSERVER",
         "ASSISTANT": "OWNER"
       }
+    },
+    {
+      "name": "macros",
+      "label": "Macros",
+      "path": "packs/macros",
+      "type": "Macro",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     }
   ],
   "esmodules": [
     "custom-script.js"
   ],
-  "url" : "https://github.com/Zaitazu/fiches-soumini",
+  "url": "https://github.com/Zaitazu/fiches-soumini",
   "manifest": "https://github.com/Zaitazu/fiches-soumini/releases/download/2.0.2/module.json",
-  "download" : "https://github.com/Zaitazu/fiches-soumini/releases/download/2.0.2/fiches-soumini.zip"
+  "download": "https://github.com/Zaitazu/fiches-soumini/releases/download/2.0.2/fiches-soumini.zip"
 }

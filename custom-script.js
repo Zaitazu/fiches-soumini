@@ -24,26 +24,6 @@ Hooks.on('combatStart', () => {
         console.log('PNJ');
       }
     });
-  
-    // on parcourt tout les tokens de la scène
-  for (let token of canvas.tokens.objects.children) {
-    // si le token est associé à un combat (onglet Rencontres de combat)
-    if (token.inCombat) {
-    // si le token n'a pas de propriétaire parmi les joueurs: PNJ
-      if (!game.actors.get(token.actor.id).hasPlayerOwner) {
-        console.log("inCombat + !hasPlayerOwner");
-        console.log(game.actors.get(token.actor.id).hasPlayerOwner);
-        // on passe le PNJ comme propriété de tout les joueurs: Droits / Tout les joueurs: Propriétaire
-        game.actors.get(token.actor.id).update({"ownership": {default: 3}});
-      // action inverse du if
-      } else {
-        console.log("inCombat + hasPlayerOwner");
-        console.log(game.actors.get(token.actor.id).hasPlayerOwner);
-        // on repasse le PNJ comme propriété du seul MJ
-        game.actors.get(token.actor.id).update({"ownership": {default: 0}});
-      }
-    }
-  }
 })
 
 Hooks.on('combatTurn', () => {
@@ -105,24 +85,4 @@ Hooks.on('preDeleteCombat', () => {
         console.log('PNJ');
       }
     });
-  
-    // on parcourt tout les tokens de la scène
-  for (let token of canvas.tokens.objects.children) {
-    // si le token est associé à un combat (onglet Rencontres de combat)
-    if (token.inCombat) {
-    // si le token n'a pas de propriétaire parmi les joueurs: PNJ
-      if (!game.actors.get(token.actor.id).hasPlayerOwner) {
-        console.log("inCombat + !hasPlayerOwner");
-        console.log(game.actors.get(token.actor.id).hasPlayerOwner);
-        // on passe le PNJ comme propriété de tout les joueurs: Droits / Tout les joueurs: Propriétaire
-        game.actors.get(token.actor.id).update({"ownership": {default: 3}});
-      // action inverse du if
-      } else {
-        console.log("inCombat + hasPlayerOwner");
-        console.log(game.actors.get(token.actor.id).hasPlayerOwner);
-        // on repasse le PNJ comme propriété du seul MJ
-        game.actors.get(token.actor.id).update({"ownership": {default: 0}});
-      }
-    }
-  }
 })
