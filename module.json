@@ -1,6 +1,6 @@
 {
   "id": "fiches-soumini",
-  "title": "Fiches Soumini",
+  "title": "Soumini CSB",
   "version": "2.0.2",
   "compatibility": {
     "minimum": "12",
@@ -41,6 +41,18 @@
       "label": "Macros",
       "path": "packs/macros",
       "type": "Macro",
+      "system": "custom-system-builder",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "scenes",
+      "label": "Scènes",
+      "path": "packs/scenes",
+      "type": "Scene",
+      "system": "custom-system-builder",
       "ownership": {
         "PLAYER": "OBSERVER",
         "ASSISTANT": "OWNER"
