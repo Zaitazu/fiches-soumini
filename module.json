@@ -1,7 +1,7 @@
 {
   "id": "fiches-soumini",
-  "title": "Fiches Soumini",
-  "version": "2.0.2",
+  "title": "Soumini CSB",
+  "version": "3",
   "compatibility": {
     "minimum": "12",
     "verified": "12"
@@ -41,16 +41,38 @@
       "label": "Macros",
       "path": "packs/macros",
       "type": "Macro",
+      "system": "custom-system-builder",
       "ownership": {
         "PLAYER": "OBSERVER",
         "ASSISTANT": "OWNER"
       }
+    },
+    {
+      "name": "scenes",
+      "label": "Scènes",
+      "path": "packs/scenes",
+      "type": "Scene",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "races",
+      "label": "Races",
+      "path": "packs/races",
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "system": "custom-system-builder"
     }
   ],
   "esmodules": [
     "custom-script.js"
   ],
   "url": "https://github.com/Zaitazu/fiches-soumini",
-  "manifest": "https://github.com/Zaitazu/fiches-soumini/releases/download/2.0.2/module.json",
-  "download": "https://github.com/Zaitazu/fiches-soumini/releases/download/2.0.2/fiches-soumini.zip"
+  "manifest": "https://github.com/Zaitazu/fiches-soumini/releases/download/3/module.json",
+  "download": "https://github.com/Zaitazu/fiches-soumini/releases/download/3/fiches-soumini.zip"
 }
