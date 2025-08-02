@@ -18,7 +18,7 @@
 
 
 ---------------- Pour ajouter une compétence à un PJ -----------------
-1. Drag&Drop l'item NewSkill sur la fiche du PJ (ATTENTION NE PAS MODIFIER AVANT LE DRAG&DROP !)
+1. Utiliser le bouton "Nouvelle compétence" de la fiche PJ OU Drag&Drop l'item NewSkill sur la fiche du PJ (ATTENTION NE PAS MODIFIER AVANT LE DRAG&DROP !)
 2. Modifier la compétence pour mettre les stats de celle voulue
 
 
