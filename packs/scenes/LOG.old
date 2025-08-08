@@ -1,7 +1,7 @@
-2025/08/08-23:32:24.206 3908 Recovering log #394
-2025/08/08-23:32:24.209 3908 Delete type=0 #394
-2025/08/08-23:32:24.209 3908 Delete type=3 #392
-2025/08/08-23:33:01.681 fec Level-0 table #399: started
-2025/08/08-23:33:01.681 fec Level-0 table #399: 0 bytes OK
-2025/08/08-23:33:01.682 fec Delete type=0 #397
-2025/08/08-23:33:01.682 fec Manual compaction at level-0 from '!scenes!1X49QRCPYLbTJbgz' @ 72057594037927935 : 1 .. '!scenes.tokens.delta.items!vF9tMUS202u46LQ7.WTX3DwQMSikqx6Uy.9KMvvfLHNmS9lSMf.ZSsEHRsp0XYuaYOz' @ 0 : 0; will stop at (end)
+2025/08/08-23:33:11.239 5878 Recovering log #398
+2025/08/08-23:33:11.242 5878 Delete type=0 #398
+2025/08/08-23:33:11.242 5878 Delete type=3 #396
+2025/08/09-01:45:37.649 fec Level-0 table #403: started
+2025/08/09-01:45:37.649 fec Level-0 table #403: 0 bytes OK
+2025/08/09-01:45:37.651 fec Delete type=0 #401
+2025/08/09-01:45:37.660 fec Manual compaction at level-0 from '!scenes!1X49QRCPYLbTJbgz' @ 72057594037927935 : 1 .. '!scenes.tokens.delta.items!vF9tMUS202u46LQ7.WTX3DwQMSikqx6Uy.9KMvvfLHNmS9lSMf.ZSsEHRsp0XYuaYOz' @ 0 : 0; will stop at (end)
