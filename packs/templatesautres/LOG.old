@@ -1,8 +1,8 @@
-2025/08/07-22:41:40.766 1590 Recovering log #155
-2025/08/07-22:41:40.770 1590 Delete type=0 #155
-2025/08/07-22:41:40.771 1590 Delete type=3 #154
-2025/08/07-22:48:00.850 6c54 Level-0 table #159: started
-2025/08/07-22:48:00.850 6c54 Level-0 table #159: 0 bytes OK
-2025/08/07-22:48:00.851 6c54 Delete type=0 #157
-2025/08/07-22:48:00.865 6c54 Manual compaction at level-0 from '!folders!48bZtMSfWeVexels' @ 72057594037927935 : 1 .. '!items!x6zmsdvBNBQSqqcA' @ 0 : 0; will stop at (end)
-2025/08/07-22:48:00.867 6c54 Manual compaction at level-1 from '!folders!48bZtMSfWeVexels' @ 72057594037927935 : 1 .. '!items!x6zmsdvBNBQSqqcA' @ 0 : 0; will stop at (end)
+2025/08/08-23:32:24.169 5878 Recovering log #479
+2025/08/08-23:32:24.187 5878 Delete type=0 #479
+2025/08/08-23:32:24.187 5878 Delete type=3 #477
+2025/08/08-23:33:01.666 fec Level-0 table #484: started
+2025/08/08-23:33:01.666 fec Level-0 table #484: 0 bytes OK
+2025/08/08-23:33:01.667 fec Delete type=0 #482
+2025/08/08-23:33:01.667 fec Manual compaction at level-0 from '!folders!48bZtMSfWeVexels' @ 72057594037927935 : 1 .. '!items!x6zmsdvBNBQSqqcA' @ 0 : 0; will stop at (end)
+2025/08/08-23:33:01.667 fec Manual compaction at level-1 from '!folders!48bZtMSfWeVexels' @ 72057594037927935 : 1 .. '!items!x6zmsdvBNBQSqqcA' @ 0 : 0; will stop at (end)

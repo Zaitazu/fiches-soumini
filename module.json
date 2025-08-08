@@ -52,6 +52,7 @@
       "label": "Scènes",
       "path": "packs/scenes",
       "type": "Scene",
+      "system": "custom-system-builder",
       "ownership": {
         "PLAYER": "OBSERVER",
         "ASSISTANT": "OWNER"
@@ -62,17 +63,34 @@
       "label": "Races",
       "path": "packs/races",
       "type": "Item",
+      "system": "custom-system-builder",
       "ownership": {
         "PLAYER": "OBSERVER",
         "ASSISTANT": "OWNER"
-      },
-      "system": "custom-system-builder"
+      }
     }
   ],
   "esmodules": [
-    "custom-script.js"
+    "custom-script.js",
+    "soumini-conditions.js"
   ],
   "url": "https://github.com/Zaitazu/fiches-soumini",
   "manifest": "https://github.com/Zaitazu/fiches-soumini/releases/download/3/module.json",
-  "download": "https://github.com/Zaitazu/fiches-soumini/releases/download/3/fiches-soumini.zip"
+  "download": "https://github.com/Zaitazu/fiches-soumini/releases/download/3/fiches-soumini.zip",
+  "relationships": {
+    "requires": [
+      {
+        "id": "statuscounter",
+        "type": "module",
+        "compatibility": {}
+      }
+    ],
+    "systems": [
+      {
+        "id": "custom-system-builder",
+        "type": "system",
+        "compatibility": {}
+      }
+    ]
+  }
 }

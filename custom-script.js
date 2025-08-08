@@ -4,7 +4,7 @@ import { registerSettings } from "./scripts/settings.js"
 /* Initialize system				          	*/
 /* ------------------------------------ */
 Hooks.once('setup', async function() {
-	console.log("Initializing Fiches soumini setup");
+	console.log("Initialisation Fiches soumini setup");
   registerSettings();
 });
 
@@ -24,7 +24,7 @@ Hooks.on('combatStart', () => {
         console.log('PNJ');
       }
     });
-})
+});
 
 Hooks.on('combatTurn', () => {
   const autoattacks = game.settings.get("fiches-soumini", "AutoAttacks");
@@ -46,7 +46,7 @@ Hooks.on('combatTurn', () => {
       }, 500);
     }
   }
-  })
+  });
 
 Hooks.on('combatRound', () => {
   const autoattacks = game.settings.get("fiches-soumini", "AutoAttacks");
@@ -68,7 +68,7 @@ Hooks.on('combatRound', () => {
       }, 500);
     }
   }
-})
+});
 
 Hooks.on('preDeleteCombat', () => {
   console.log('Fin de combat !');
@@ -85,4 +85,4 @@ Hooks.on('preDeleteCombat', () => {
         console.log('PNJ');
       }
     });
-})
+});
