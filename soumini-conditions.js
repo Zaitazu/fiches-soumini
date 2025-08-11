@@ -159,12 +159,12 @@ function setupConditions(){
         description: "<p>La fatigue diminue de 1 la puissance de D de toutes les attaques du joueur. </p><p>Sur un ennemi attaquant plusieurs fois par tour, cela diminue la puissance d'un seul de ses D. La fatigue n'est pas cumulable et n'est pas soigner à la fin d'un combat.</p><p>La fatigue peut-être contractée hors-combat, le MJ peut donner un état fatigue au joueur s'il ne dort pas, saute plusieurs repas, est dans un environnement trop chaud, trop froid, etc...</p><p>Hors-combat la fatigue donne un malus D-10 à tous les jets du joueur. La fatigue est soignée après une nuit de sommeil complète.</p>",
     };
     /////////////////////////////////////
-    game.items.getName("Active Effects").createEmbeddedDocuments("ActiveEffect", [BURN]);
-    game.items.getName("Active Effects").createEmbeddedDocuments("ActiveEffect", [MALEDICTION]);
-    game.items.getName("Active Effects").createEmbeddedDocuments("ActiveEffect", [BLOOD]);
-    game.items.getName("Active Effects").createEmbeddedDocuments("ActiveEffect", [SHIELD]);
-    game.items.getName("Active Effects").createEmbeddedDocuments("ActiveEffect", [POISON]);
-    game.items.getName("Active Effects").createEmbeddedDocuments("ActiveEffect", [GEL]);
-    game.items.getName("Active Effects").createEmbeddedDocuments("ActiveEffect", [CHARMED]);
-    game.items.getName("Active Effects").createEmbeddedDocuments("ActiveEffect", [SLEEP]);
+    game.items.find(e=>e.type=="activeEffectContainer").createEmbeddedDocuments("ActiveEffect", [BURN]);
+    game.items.find(e=>e.type=="activeEffectContainer").createEmbeddedDocuments("ActiveEffect", [MALEDICTION]);
+    game.items.find(e=>e.type=="activeEffectContainer").createEmbeddedDocuments("ActiveEffect", [BLOOD]);
+    game.items.find(e=>e.type=="activeEffectContainer").createEmbeddedDocuments("ActiveEffect", [SHIELD]);
+    game.items.find(e=>e.type=="activeEffectContainer").createEmbeddedDocuments("ActiveEffect", [POISON]);
+    game.items.find(e=>e.type=="activeEffectContainer").createEmbeddedDocuments("ActiveEffect", [GEL]);
+    game.items.find(e=>e.type=="activeEffectContainer").createEmbeddedDocuments("ActiveEffect", [CHARMED]);
+    game.items.find(e=>e.type=="activeEffectContainer").createEmbeddedDocuments("ActiveEffect", [SLEEP]);
 };

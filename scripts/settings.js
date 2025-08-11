@@ -8,6 +8,6 @@ export const registerSettings = function() {
     scope: "world",
     type: Boolean,
     config: true,
-    default: false
+    default: true
   });
 }

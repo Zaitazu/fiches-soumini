@@ -1,7 +1,7 @@
-2025/08/08-23:33:11.247 5878 Recovering log #339
-2025/08/08-23:33:11.251 5878 Delete type=0 #339
-2025/08/08-23:33:11.251 5878 Delete type=3 #337
-2025/08/09-01:45:37.648 fec Level-0 table #344: started
-2025/08/09-01:45:37.648 fec Level-0 table #344: 0 bytes OK
-2025/08/09-01:45:37.649 fec Delete type=0 #342
-2025/08/09-01:45:37.660 fec Manual compaction at level-0 from '!folders!AEB5sMO0h5OgNY8f' @ 72057594037927935 : 1 .. '!items.effects!e691tuZqvzgX73Au.eExivpu6mLsfAsmq' @ 0 : 0; will stop at (end)
+2025/08/11-12:56:05.914 4bbc Recovering log #438
+2025/08/11-12:56:05.917 4bbc Delete type=0 #438
+2025/08/11-12:56:05.917 4bbc Delete type=3 #436
+2025/08/11-12:56:15.958 6730 Level-0 table #443: started
+2025/08/11-12:56:15.958 6730 Level-0 table #443: 0 bytes OK
+2025/08/11-12:56:15.959 6730 Delete type=0 #441
+2025/08/11-12:56:15.964 6730 Manual compaction at level-0 from '!folders!AEB5sMO0h5OgNY8f' @ 72057594037927935 : 1 .. '!items.effects!e691tuZqvzgX73Au.eExivpu6mLsfAsmq' @ 0 : 0; will stop at (end)
