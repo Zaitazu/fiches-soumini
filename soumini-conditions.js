@@ -1,6 +1,8 @@
 Hooks.once('setup', async function() {
 	console.log("Initialisation Soumini Conditions");
+    console.log(CONFIG.statusEffects);
     setupIcons();
+    setupConditions();
 });
 
 function setupIcons() {
@@ -58,8 +60,7 @@ function setupIcons() {
   else{
     console.log("CHANGEMENT DE STATUS!");
     CONFIG.statusEffects = statuses;
-    setupConditions();
-  }
+  };
 };
 
 function setupConditions(){
@@ -156,15 +157,17 @@ function setupConditions(){
         disabled: false,
         type: "base",
         statuses: ["fatigue"],
-        description: "<p>La fatigue diminue de 1 la puissance de D de toutes les attaques du joueur. </p><p>Sur un ennemi attaquant plusieurs fois par tour, cela diminue la puissance d'un seul de ses D. La fatigue n'est pas cumulable et n'est pas soigner à la fin d'un combat.</p><p>La fatigue peut-être contractée hors-combat, le MJ peut donner un état fatigue au joueur s'il ne dort pas, saute plusieurs repas, est dans un environnement trop chaud, trop froid, etc...</p><p>Hors-combat la fatigue donne un malus D-10 à tous les jets du joueur. La fatigue est soignée après une nuit de sommeil complète.</p>",
+        description: "<p>La fatigue diminue de 1 la puissance de D de toutes les attaques du joueur. </p><p>Sur un ennemi attaquant plusieurs fois par tour, cela diminue la puissance d'un seul de ses D. La fatigue n'est pas cumulable et n'est pas soigner à la fin d'un combat.</p><p>La fatigue peut-être contractée hors-combat, le MJ peut donner un état fatigue au joueur s'il ne dort pas, saute plusieurs repas, est dans un environnement trop chaud, trop froid, etc...</p><p>Hors-combat la fatigue donne un malus D-10 à tous les jets du joueur. La fatigue est soignée après une nuit de sommeil complète.</p>",
     };
     /////////////////////////////////////
-    game.items.find(e=>e.type=="activeEffectContainer").createEmbeddedDocuments("ActiveEffect", [BURN]);
-    game.items.find(e=>e.type=="activeEffectContainer").createEmbeddedDocuments("ActiveEffect", [MALEDICTION]);
-    game.items.find(e=>e.type=="activeEffectContainer").createEmbeddedDocuments("ActiveEffect", [BLOOD]);
-    game.items.find(e=>e.type=="activeEffectContainer").createEmbeddedDocuments("ActiveEffect", [SHIELD]);
-    game.items.find(e=>e.type=="activeEffectContainer").createEmbeddedDocuments("ActiveEffect", [POISON]);
-    game.items.find(e=>e.type=="activeEffectContainer").createEmbeddedDocuments("ActiveEffect", [GEL]);
-    game.items.find(e=>e.type=="activeEffectContainer").createEmbeddedDocuments("ActiveEffect", [CHARMED]);
-    game.items.find(e=>e.type=="activeEffectContainer").createEmbeddedDocuments("ActiveEffect", [SLEEP]);
+    const container = game.items.find(e=>e.type=="activeEffectContainer");
+    
+    if(container.effects.find(e=>e.name=='Brûlure')===undefined){container.createEmbeddedDocuments("ActiveEffect", [BURN]);};
+    if(container.effects.find(e=>e.name=='Malédiction')===undefined){container.createEmbeddedDocuments("ActiveEffect", [MALEDICTION]);};
+    if(container.effects.find(e=>e.name=='Saignement')===undefined){container.createEmbeddedDocuments("ActiveEffect", [BLOOD]);};
+    if(container.effects.find(e=>e.name=='Barrière')===undefined){container.createEmbeddedDocuments("ActiveEffect", [SHIELD]);};
+    if(container.effects.find(e=>e.name=='Poison')===undefined){container.createEmbeddedDocuments("ActiveEffect", [POISON]);};
+    if(container.effects.find(e=>e.name=='Gel')===undefined){container.createEmbeddedDocuments("ActiveEffect", [GEL]);};
+    if(container.effects.find(e=>e.name=='Charme')===undefined){container.createEmbeddedDocuments("ActiveEffect", [CHARMED]);};
+    if(container.effects.find(e=>e.name=='Fatigue')===undefined){container.createEmbeddedDocuments("ActiveEffect", [SLEEP]);};
 };

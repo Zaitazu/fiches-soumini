@@ -1,8 +1,8 @@
-2025/08/11-12:56:51.407 4bbc Recovering log #586
-2025/08/11-12:56:51.443 4bbc Delete type=0 #586
-2025/08/11-12:56:51.443 4bbc Delete type=3 #584
-2025/08/11-13:04:03.255 6730 Level-0 table #591: started
-2025/08/11-13:04:03.255 6730 Level-0 table #591: 0 bytes OK
-2025/08/11-13:04:03.259 6730 Delete type=0 #589
-2025/08/11-13:04:03.273 6730 Manual compaction at level-0 from '!folders!48bZtMSfWeVexels' @ 72057594037927935 : 1 .. '!items!x6zmsdvBNBQSqqcA' @ 0 : 0; will stop at (end)
-2025/08/11-13:04:03.273 6730 Manual compaction at level-1 from '!folders!48bZtMSfWeVexels' @ 72057594037927935 : 1 .. '!items!x6zmsdvBNBQSqqcA' @ 0 : 0; will stop at (end)
+2025/08/23-21:26:30.534 22d0 Recovering log #614
+2025/08/23-21:26:30.557 22d0 Delete type=0 #614
+2025/08/23-21:26:30.557 22d0 Delete type=3 #612
+2025/08/23-21:26:53.101 3eb0 Level-0 table #619: started
+2025/08/23-21:26:53.102 3eb0 Level-0 table #619: 0 bytes OK
+2025/08/23-21:26:53.103 3eb0 Delete type=0 #617
+2025/08/23-21:26:53.107 3eb0 Manual compaction at level-0 from '!folders!48bZtMSfWeVexels' @ 72057594037927935 : 1 .. '!items!x6zmsdvBNBQSqqcA' @ 0 : 0; will stop at (end)
+2025/08/23-21:26:53.107 3eb0 Manual compaction at level-1 from '!folders!48bZtMSfWeVexels' @ 72057594037927935 : 1 .. '!items!x6zmsdvBNBQSqqcA' @ 0 : 0; will stop at (end)
