@@ -1,3 +1,8 @@
-2025/08/23-21:26:55.753 5a58 Recovering log #618
-2025/08/23-21:26:55.758 5a58 Delete type=0 #618
-2025/08/23-21:26:55.758 5a58 Delete type=3 #616
+2025/08/28-18:01:22.178 656c Recovering log #648
+2025/08/28-18:01:22.182 656c Delete type=0 #648
+2025/08/28-18:01:22.182 656c Delete type=3 #646
+2025/08/28-20:49:24.136 5bf4 Level-0 table #653: started
+2025/08/28-20:49:24.136 5bf4 Level-0 table #653: 0 bytes OK
+2025/08/28-20:49:24.137 5bf4 Delete type=0 #651
+2025/08/28-20:49:24.139 5bf4 Manual compaction at level-0 from '!folders!48bZtMSfWeVexels' @ 72057594037927935 : 1 .. '!items!x6zmsdvBNBQSqqcA' @ 0 : 0; will stop at (end)
+2025/08/28-20:49:24.139 5bf4 Manual compaction at level-1 from '!folders!48bZtMSfWeVexels' @ 72057594037927935 : 1 .. '!items!x6zmsdvBNBQSqqcA' @ 0 : 0; will stop at (end)
