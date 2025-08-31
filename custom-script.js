@@ -8,6 +8,9 @@ Hooks.once('setup', async function() {
   registerSettings();
 });
 
+Hooks.once('customSystemBuilderReady', () => {
+    game.settings.set(game.system.id, 'initFormula', 'vit');
+});
 
 Hooks.on('combatStart', () => {
   console.log('Début de combat !');
