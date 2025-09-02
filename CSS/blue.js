@@ -6,7 +6,9 @@ export const blue = {
     fond: "#445865db",
     ruban: "#35a8b7b1",
     text: "#ffffff",
-    inputText: "#C7D3DC",
+    bgText: "#3e97a353",
+    button: "#cc7b5e",
+    inputText: "#c7d3dcff",
     highlight: "#cc7b5e"
   }
 };

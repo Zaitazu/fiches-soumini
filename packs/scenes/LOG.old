@@ -1,7 +1,7 @@
-2025/09/02-22:49:24.908 6524 Recovering log #626
-2025/09/02-22:49:24.912 6524 Delete type=0 #626
-2025/09/02-22:49:24.912 6524 Delete type=3 #624
-2025/09/02-22:54:20.965 5fb0 Level-0 table #631: started
-2025/09/02-22:54:20.965 5fb0 Level-0 table #631: 0 bytes OK
-2025/09/02-22:54:20.965 5fb0 Delete type=0 #629
-2025/09/02-22:54:20.966 5fb0 Manual compaction at level-0 from '!scenes!1X49QRCPYLbTJbgz' @ 72057594037927935 : 1 .. '!scenes.tokens.delta.items!vF9tMUS202u46LQ7.WTX3DwQMSikqx6Uy.9KMvvfLHNmS9lSMf.ZSsEHRsp0XYuaYOz' @ 0 : 0; will stop at (end)
+2025/09/03-00:38:32.499 5fb0 Recovering log #644
+2025/09/03-00:38:32.503 5fb0 Delete type=0 #644
+2025/09/03-00:38:32.503 5fb0 Delete type=3 #642
+2025/09/03-00:39:31.341 5618 Level-0 table #649: started
+2025/09/03-00:39:31.341 5618 Level-0 table #649: 0 bytes OK
+2025/09/03-00:39:31.342 5618 Delete type=0 #647
+2025/09/03-00:39:31.342 5618 Manual compaction at level-0 from '!scenes!1X49QRCPYLbTJbgz' @ 72057594037927935 : 1 .. '!scenes.tokens.delta.items!vF9tMUS202u46LQ7.WTX3DwQMSikqx6Uy.9KMvvfLHNmS9lSMf.ZSsEHRsp0XYuaYOz' @ 0 : 0; will stop at (end)

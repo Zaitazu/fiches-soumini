@@ -6,6 +6,8 @@ export const forest = {
     fond: "#3E5C4A",     // app background
     ruban: "#2F4A5A",    // header + inputs background
     text: "#F5F5F5",     // general text
+    bgText: "#2f4a5a53",
+    button: "#D97B40",
     inputText: "#E0C074",// inputs text
     highlight: "#D97B40" // headings + rollable accents
   }

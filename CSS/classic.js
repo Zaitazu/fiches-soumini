@@ -6,7 +6,9 @@ export const classic = {
     fond: "#4B4B4B",     // app background
     ruban: "#6B8FD6",    // header + inputs background
     text: "#FFFFFF",     // general text
+    bgText: "#6b8fd653",
+    button: "#6B8FD6",
     inputText: "#E8E8E8",// inputs text
-    highlight: "#B5B5B5" // headings + rollable accents
+    highlight: "#6B8FD6" // headings + rollable accents
   }
 };
