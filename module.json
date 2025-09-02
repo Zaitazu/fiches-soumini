@@ -72,7 +72,8 @@
   ],
   "esmodules": [
     "custom-script.js",
-    "soumini-conditions.js"
+    "soumini-conditions.js",
+    "sheet-theme.js"
   ],
   "url": "https://github.com/Zaitazu/fiches-soumini",
   "manifest": "https://github.com/Zaitazu/fiches-soumini/releases/download/3/module.json",
