@@ -69,7 +69,10 @@ function buildScopedCSS(prefix, pal) {
     ${prefix} h4 {
       color: ${highlight};
     }
-    ${prefix} .actor-v2 .custom-system-rollable {
+    /* Rollables: root may itself have .actor-v2 */
+    ${prefix}.actor-v2 .custom-system-rollable,
+    ${prefix} .actor-v2 .custom-system-rollable,
+    ${prefix} .custom-system-rollable {
       color: ${highlight};
     }
 
