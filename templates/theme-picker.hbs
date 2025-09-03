@@ -1,0 +1,25 @@
+<form class="celestial-theme-form">
+  {{#if canEdit}}
+    <div class="form-group">
+      <label for="themeChoice">Sheet Theme</label>
+      <select name="themeChoice" id="themeChoice">
+        {{#each choices as |label id|}}
+          <option value="{{id}}" {{#if (eq id ../current)}}selected{{/if}}>{{label}}</option>
+        {{/each}}
+      </select>
+    </div>
+
+    <footer class="sheet-footer flexrow">
+      <button type="submit" class="dialog-button default">Apply</button>
+      <button type="button" data-action="cancel" class="dialog-button">Cancel</button>
+    </footer>
+  {{else}}
+    <p style="padding: 1em; text-align: center; color: #888;">
+      You don’t have permission to change this sheet’s theme.
+    </p>
+
+    <footer class="sheet-footer flexrow">
+      <button type="button" data-action="cancel" class="dialog-button">Close</button>
+    </footer>
+  {{/if}}
+</form>

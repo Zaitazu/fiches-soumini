@@ -3,7 +3,6 @@ export const celestial = {
   id: "celestial",
   label: "Celestial Paladin",
   colors: {
-    // Base UI
     fond: "#948857bb",       // ivory parchment (light, low eye fatigue)
     ruban: "#C9A227",      // muted royal gold for header/inputs
     text: "#ecececff",       // slate-900 (excellent contrast on ivory & gold)
