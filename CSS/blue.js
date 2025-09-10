@@ -8,7 +8,7 @@ export const blue = {
     text: "#ffffff",
     bgText: "#3e97a353",
     button: "#cc7b5e",
-    inputText: "#c7d3dcff",
+    inputText: "#ffffff",
     highlight: "#cc7b5e"
   }
 };

@@ -8,7 +8,7 @@ export const classic = {
     text: "#FFFFFF",     // general text
     bgText: "#6b8fd653",
     button: "#6B8FD6",
-    inputText: "#E8E8E8",// inputs text
+    inputText: "#ffffff",// inputs text
     highlight: "#6B8FD6" // headings + rollable accents
   }
 };

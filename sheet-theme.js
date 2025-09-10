@@ -29,6 +29,34 @@ function buildScopedCSS(prefix, pal) {
   const highlight = pal.highlight ?? text;
   const button    = pal.button    ?? text;
 
+  // Background image options (optional)
+  const bgImage    = pal.bgImage    ?? null;
+  const bgSize     = pal.bgSize     ?? "cover";
+  const bgPosition = pal.bgPosition ?? "center";
+  const bgRepeat   = pal.bgRepeat   ?? "no-repeat";
+  const bgOpacity  = Number.isFinite(pal.bgOpacity) ? pal.bgOpacity : 0.15;
+
+  // Convert hex fond → rgba for the gradient veil
+  const veilRGBA = (() => {
+    const hex = fond.replace("#", "");
+    const to = (i) => parseInt(hex.length === 3 ? hex[i]+hex[i] : hex.slice(i*2, i*2+2), 16);
+    const r = to(0) || 250, g = to(1) || 247, b = to(2) || 234;
+    return `rgba(${r}, ${g}, ${b}, ${Math.max(0, Math.min(1, bgOpacity))})`;
+  })();
+
+  const contentBackgroundBlock = bgImage ? `
+    background-color: ${fond};
+    background-image:
+      linear-gradient(${veilRGBA}, ${veilRGBA}),
+      url("${bgImage}");
+    background-size: ${bgSize}, ${bgSize};
+    background-position: ${bgPosition}, ${bgPosition};
+    background-repeat: no-repeat, ${bgRepeat};
+  ` : `
+    background: ${fond};
+    background-color: ${fond};
+  `;
+
   return `
     /* Root */
     ${prefix} {
@@ -36,14 +64,7 @@ function buildScopedCSS(prefix, pal) {
       background-color: ${fond};
       color: ${text};
       --color-header-background: ${ruban};
-    }
-
-    /* Common inner containers */
-    ${prefix} .window-content,
-    ${prefix} .application {
-      background: ${fond};
-      background-color: ${fond};
-      color: ${text};
+      --color-select-option-bg: ${ruban};
     }
 
     /* Header bar */
@@ -52,7 +73,19 @@ function buildScopedCSS(prefix, pal) {
       color: ${text};
     }
 
-    /* Inputs & selects (scoped only) */
+    /* Zone de contenu (fond + image éventuelle) */
+    ${prefix} .window-content {
+      ${contentBackgroundBlock}
+      color: ${text};
+    }
+
+    /* Certains systèmes utilisent aussi .application comme conteneur interne */
+    ${prefix} .application {
+      background: transparent;
+      color: ${text};
+    }
+
+    /* Inputs & selects (scopé) */
     ${prefix} input[type="text"],
     ${prefix} input[type="number"],
     ${prefix} input[type="password"],
@@ -70,7 +103,7 @@ function buildScopedCSS(prefix, pal) {
       color: ${highlight};
     }
 
-    /* Rollables (cover root having .actor-v2, or it being inside; plus generic class) */
+    /* Rollables */
     ${prefix}.actor-v2 .custom-system-rollable,
     ${prefix} .actor-v2 .custom-system-rollable,
     ${prefix} .custom-system-rollable {
