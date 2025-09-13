@@ -73,7 +73,8 @@
   "esmodules": [
     "custom-script.js",
     "soumini-conditions.js",
-    "sheet-theme.js"
+    "sheet-theme.js",
+    "pause-logo.js"
   ],
   "templates": ["templates/theme-picker.hbs"],
   

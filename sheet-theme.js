@@ -115,6 +115,12 @@ function buildScopedCSS(prefix, pal) {
     ${prefix} button {
       color: ${button};
     }
+
+    /* Button theme selector */
+    ${prefix} a.header-button {
+        position: absolute;
+        right: 120px;
+    }
   `;
 }
 
