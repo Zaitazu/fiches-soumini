@@ -1,3 +1,8 @@
-2025/09/13-19:04:01.879 5ce4 Recovering log #888
-2025/09/13-19:04:01.898 5ce4 Delete type=0 #888
-2025/09/13-19:04:01.898 5ce4 Delete type=3 #886
+2025/09/13-19:05:01.739 19b0 Recovering log #891
+2025/09/13-19:05:01.743 19b0 Delete type=0 #891
+2025/09/13-19:05:01.743 19b0 Delete type=3 #890
+2025/09/13-19:05:13.349 5f58 Level-0 table #895: started
+2025/09/13-19:05:13.349 5f58 Level-0 table #895: 0 bytes OK
+2025/09/13-19:05:13.350 5f58 Delete type=0 #893
+2025/09/13-19:05:13.350 5f58 Manual compaction at level-0 from '!folders!48bZtMSfWeVexels' @ 72057594037927935 : 1 .. '!items!x6zmsdvBNBQSqqcA' @ 0 : 0; will stop at (end)
+2025/09/13-19:05:13.350 5f58 Manual compaction at level-1 from '!folders!48bZtMSfWeVexels' @ 72057594037927935 : 1 .. '!items!x6zmsdvBNBQSqqcA' @ 0 : 0; will stop at (end)
