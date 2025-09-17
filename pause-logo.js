@@ -20,7 +20,7 @@ const FS_PAUSE_VERT     = "12vmin";
       background-position: center top !important;
       background-repeat: no-repeat !important;
       background-size: ${FS_PAUSE_SIZE} !important;
-      padding-top: calc(${FS_PAUSE_SIZE} + ${FS_PAUSE_GAP}) !important;
+      padding-top:calc(${FS_PAUSE_VERT})!important;
       text-align: center !important;
     }
 
@@ -61,6 +61,7 @@ Hooks.once("init", () => {
       #pause img,#pause svg,#pause i,#pause .fa,#pause .fa-pause{display:none!important}
     `;
     document.head.appendChild(style);
+    console.log("Changement pause logo");
   }
 });
 
