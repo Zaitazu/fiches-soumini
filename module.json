@@ -76,8 +76,7 @@
     "sheet-theme.js",
     "pause-logo.js"
   ],
-  "templates": ["templates/theme-picker.hbs"],
-  
+
   "url": "https://github.com/Zaitazu/fiches-soumini",
   "manifest": "https://github.com/Zaitazu/fiches-soumini/releases/download/3/module.json",
   "download": "https://github.com/Zaitazu/fiches-soumini/releases/download/3/fiches-soumini.zip",
