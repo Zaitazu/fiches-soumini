@@ -22,6 +22,7 @@ const FS_PAUSE_VERT     = "12vmin";
       background-size: ${FS_PAUSE_SIZE} !important;
       padding-top:calc(${FS_PAUSE_VERT})!important;
       text-align: center !important;
+      bottom: 25%;
     }
 
     /* Hide built-in pause icons (but not the text) */

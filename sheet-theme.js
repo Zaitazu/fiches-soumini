@@ -225,29 +225,53 @@ class ActorThemeForm extends FormApplication {
 
 function injectHeaderButton(app) {
   if (!app?.actor) return;
-  const root = app.element;
-  if (!root) return;
-
-  const header = root.querySelector(".window-header");
-  if (!header) return;
 
   // Only GM or Actor owner can see the button
-  const canEditTheme = game.user.isGM || app.actor.isOwner;
-  if (!canEditTheme) return;
+  if (!(game.user?.isGM || app.actor?.isOwner)) return;
 
-  // Avoid duplicates
-  if (header.querySelector('[data-theme-button="1"]')) return;
+  // Resolve the root DOM element for this ApplicationV2 instance
+  const appId = app.id || app.appId;
+  let appElement = null;
 
-  const btn = document.createElement("a");
+  // Try common ways to get the element (V12–V13 safe)
+  if (appId) appElement = document.getElementById(appId);
+  if (!appElement && app._element) appElement = app._element instanceof jQuery ? app._element[0] : app._element;
+  if (!appElement && app.element)  appElement  = app.element  instanceof jQuery ? app.element[0]  : app.element;
+
+  const header = appElement?.querySelector?.(".window-header");
+  if (!header) return;
+
+  // Avoid duplicates by stable id per app window
+  const domID = `fs-theme-btn-${appId}`;
+  if (header.querySelector(`#${domID}, [data-theme-button="1"]`)) return;
+
+  // Try to place inside the header controls cluster, before the close button
+  const closeButton = header.querySelector('[data-action="close"]');
+
+  // Build a proper ApplicationV2 header control button
+  const btn = document.createElement("button");
+  btn.id = domID;
+  btn.type = "button";
   btn.setAttribute("data-theme-button", "1");
-  btn.classList.add("header-button");
-  btn.title = "Choose Sheet Theme";
+  btn.className = "header-control icon"; // same classes used by core controls
+  btn.setAttribute("data-tooltip", "Choose Sheet Theme");
   btn.innerHTML = `<i class="fas fa-palette"></i>`;
   btn.addEventListener("click", () => new ActorThemeForm(app.actor).render(true));
 
-  // Insert as the very first child of the header (left-most)
-  header.insertBefore(btn, header.firstChild);
+  if (closeButton && closeButton.parentNode) {
+    // Insert our button immediately before the "close" control (zone violette)
+    closeButton.parentNode.insertBefore(btn, closeButton);
+  } else {
+    // Fallback: put it near the title if no controls group is found
+    const title = header.querySelector(".window-title");
+    if (title && title.parentNode) {
+      title.parentNode.insertBefore(btn, title.nextSibling);
+    } else {
+      header.appendChild(btn);
+    }
+  }
 }
+
 
 // ----------------------------------------------------------------------------
 // Hooks
