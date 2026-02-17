@@ -8,6 +8,7 @@ export const celestial = {
     text: "#ffffff",       // slate-900 (excellent contrast on ivory & gold)
     bgText: "#c9a32767",
     button: "#d7de07ff",
+    headerButton: "#ffffff",
     inputText: "#ffffff",  // same as text for strong readability
     highlight: "#d7de07ff",  // deep amber for headings/rollables text
 

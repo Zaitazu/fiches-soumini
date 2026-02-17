@@ -8,6 +8,7 @@ export const forest = {
     text: "#ffffff",     // general text
     bgText: "#2f4a5a53",
     button: "#D97B40",
+    headerButton: "#ffffff",
     inputText: "#ffffff",// inputs text
     highlight: "#D97B40" // headings + rollable accents
   }

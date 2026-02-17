@@ -8,6 +8,7 @@ export const celestialDark = {
     text: "#ffffff",       // off-white for readability
     bgText: "#c9a32753",
     button: "#FFD369",
+    headerButton: "#ffffff",
     inputText: "#ffffff",  // pale parchment tone for inputs
     highlight: "#FFD369"   // bright warm gold for headings/rollables
   }

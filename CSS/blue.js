@@ -8,6 +8,7 @@ export const blue = {
     text: "#ffffff",
     bgText: "#3e97a353",
     button: "#cc7b5e",
+    headerButton: "#ffffff",
     inputText: "#ffffff",
     highlight: "#cc7b5e"
   }
