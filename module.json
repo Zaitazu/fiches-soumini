@@ -1,10 +1,10 @@
 {
   "id": "fiches-soumini",
   "title": "Soumini CSB",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "compatibility": {
-    "minimum": "12",
-    "verified": "12"
+    "minimum": "13",
+    "verified": "13"
   },
   "authors": [
     {
@@ -78,8 +78,8 @@
   ],
 
   "url": "https://github.com/Zaitazu/fiches-soumini",
-  "manifest": "https://github.com/Zaitazu/fiches-soumini/releases/download/3.0.1/module.json",
-  "download": "https://github.com/Zaitazu/fiches-soumini/releases/download/3.0.1/fiches-soumini.zip",
+  "manifest": "https://github.com/Zaitazu/fiches-soumini/releases/download/3.1.0/module.json",
+  "download": "https://github.com/Zaitazu/fiches-soumini/releases/download/3.1.0/fiches-soumini.zip",
   "relationships": {
     "requires": [
       {
