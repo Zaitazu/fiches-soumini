@@ -1,3 +1,8 @@
-2026/04/02-11:39:18.241 76ec Recovering log #1027
-2026/04/02-11:39:18.277 76ec Delete type=0 #1027
-2026/04/02-11:39:18.277 76ec Delete type=3 #1025
+2026/04/02-23:42:51.081 5778 Recovering log #1032
+2026/04/02-23:42:51.085 5778 Delete type=0 #1032
+2026/04/02-23:42:51.085 5778 Delete type=3 #1031
+2026/04/02-23:43:12.746 49bc Level-0 table #1036: started
+2026/04/02-23:43:12.746 49bc Level-0 table #1036: 0 bytes OK
+2026/04/02-23:43:12.747 49bc Delete type=0 #1034
+2026/04/02-23:43:12.761 49bc Manual compaction at level-0 from '!folders!48bZtMSfWeVexels' @ 72057594037927935 : 1 .. '!items!x6zmsdvBNBQSqqcA' @ 0 : 0; will stop at (end)
+2026/04/02-23:43:12.767 49bc Manual compaction at level-1 from '!folders!48bZtMSfWeVexels' @ 72057594037927935 : 1 .. '!items!x6zmsdvBNBQSqqcA' @ 0 : 0; will stop at (end)
