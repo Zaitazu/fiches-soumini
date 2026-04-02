@@ -1,91 +1,134 @@
-import { registerSettings } from "./scripts/settings.js"
+import { registerSettings } from "./scripts/settings.js";
 
 /* ------------------------------------ */
-/* Initialize system				          	*/
+/* Init                                 */
 /* ------------------------------------ */
-Hooks.once('setup', async function() {
-	console.log("Initialisation Fiches soumini setup");
+Hooks.once("setup", async function () {
+  console.log("Initialisation Fiches soumini setup");
   registerSettings();
 });
 
-Hooks.once('customSystemBuilderReady', () => {
-    game.settings.set(game.system.id, 'initFormula', 'vit');
+Hooks.once("customSystemBuilderReady", () => {
+  game.settings.set(game.system.id, "initFormula", "vit");
 });
 
-Hooks.on('combatStart', () => {
-  console.log('Début de combat !');
-  const pj_template = game.actors.getName('_PJ_Template').id;
-  game.combat.combatants
-    .forEach(element => {
-      console.log(element.actorId);
-      const acteur = game.actors.get(element.actorId);
-      if(acteur.system.template===pj_template){
-        console.log('PJ');
-        acteur.roll('end_battle',{postMessage:false});
-      }
-      else{
-        console.log('PNJ');
-      }
-    });
-});
+/* ------------------------------------ */
+/* Utils                                */
+/* ------------------------------------ */
+function getPJTemplateId() {
+  return game.actors.getName("_PJ_Template")?.id ?? null;
+}
 
-Hooks.on('combatTurn', () => {
-  const autoattacks = game.settings.get("fiches-soumini", "AutoAttacks");
-  console.log('Combat Turn');
-  const pj_template = game.actors.getName('_PJ_Template').id;
-  const acteur = canvas.tokens.get(game.combat.nextCombatant.tokenId).actor;
+function isPJ(actor, pjTemplateId) {
+  return actor?.system?.template === pjTemplateId;
+}
 
-  if(acteur.system.template===pj_template){
-    console.log('PJ');
-    acteur.roll('start_turn',{postMessage:true});
+function getLiveActorFromCombatant(combatant) {
+  if (!combatant) return null;
+
+  const tokenId = combatant.tokenId ?? combatant.token?.id;
+  if (tokenId) {
+    const token = canvas.tokens?.get(tokenId);
+    if (token?.actor) return token.actor;
   }
-  else{
-    console.log('PNJ');
-    acteur.roll('start_turn',{postMessage:true});
-    if(autoattacks){
-      setTimeout(() => {
-        acteur.reloadTemplate();
-        acteur.roll('atqs',{postMessage:false});
-      }, 500);
+
+  if (combatant.actor) return combatant.actor;
+
+  const actorId = combatant.actorId;
+  if (actorId) return game.actors.get(actorId) ?? null;
+
+  return null;
+}
+
+/* ------------------------------------ */
+/* Combat start                         */
+/* ------------------------------------ */
+Hooks.on("combatStart", async (combat) => {
+  console.log("[Soumini] Début de combat");
+
+  const pjTemplateId = getPJTemplateId();
+  if (!pjTemplateId || !combat?.combatants) return;
+
+  for (const combatant of combat.combatants) {
+    const actor = getLiveActorFromCombatant(combatant);
+    if (!actor) continue;
+
+    if (isPJ(actor, pjTemplateId)) {
+      await actor.roll("end_battle", { postMessage: false });
     }
   }
+});
+
+/* ------------------------------------ */
+/* Combat turn change                   */
+/* ------------------------------------ */
+Hooks.on("combatTurnChange", async (combat, prior, current) => {
+  const autoattacks = game.settings.get("fiches-soumini", "AutoAttacks");
+  console.log("[Soumini] Combat Turn Change", { prior, current });
+
+  const pjTemplateId = getPJTemplateId();
+  if (!pjTemplateId) return;
+
+  const combatant = combat?.combatant;
+  if (!combatant) return;
+
+  const actor = getLiveActorFromCombatant(combatant);
+  if (!actor) {
+    console.warn("[Soumini] Aucun acteur trouvé pour le combatant courant.");
+    return;
+  }
+
+  console.log("[Soumini] Tour détecté", {
+    round: combat.round,
+    turn: combat.turn,
+    combatantId: combatant.id,
+    tokenId: combatant.tokenId,
+    actorId: actor.id,
+    actorName: actor.name
   });
 
-Hooks.on('combatRound', () => {
-  const autoattacks = game.settings.get("fiches-soumini", "AutoAttacks");
-  console.log('Combat Turn');
-  const pj_template = game.actors.getName('_PJ_Template').id;
-  const acteur = canvas.tokens.get(game.combat.nextCombatant.tokenId).actor;
+  if (isPJ(actor, pjTemplateId)) {
+    console.log("[Soumini] PJ");
+    await actor.roll("start_turn", { postMessage: true });
+    return;
+  }
 
-  if(acteur.system.template===pj_template){
-    console.log('PJ');
-    acteur.roll('start_turn',{postMessage:true});
-  }
-  else{
-    console.log('PNJ');
-    acteur.roll('start_turn',{postMessage:true});
-    if(autoattacks){
-      setTimeout(() => {
-        acteur.reloadTemplate();
-        acteur.roll('atqs',{postMessage:false});
-      }, 500);
-    }
-  }
+  console.log("[Soumini] PNJ");
+  await actor.roll("start_turn", { postMessage: true });
+
+  if (!autoattacks) return;
+
+  setTimeout(async () => {
+    const currentCombat = game.combat;
+    if (!currentCombat?.combatant) return;
+
+    if (currentCombat.combatant.id !== combatant.id) return;
+
+    const freshActor = getLiveActorFromCombatant(currentCombat.combatant);
+    if (!freshActor) return;
+
+    const pv = Number(freshActor.system?.props?.pv_actuel ?? 0);
+    if (pv <= 0) return;
+
+    await freshActor.roll("atqs", { postMessage: false });
+  }, 200);
 });
 
-Hooks.on('preDeleteCombat', () => {
-  console.log('Fin de combat !');
-  const pj_template = game.actors.getName('_PJ_Template').id;
-  game.combat.combatants
-    .forEach(element => {
-      console.log(element.actorId);
-      const acteur = game.actors.get(element.actorId);
-      if(acteur.system.template===pj_template){
-        console.log('PJ');
-        acteur.roll('end_battle',{postMessage:false});
-      }
-      else{
-        console.log('PNJ');
-      }
-    });
+/* ------------------------------------ */
+/* Combat end                           */
+/* ------------------------------------ */
+Hooks.on("preDeleteCombat", async (combat) => {
+  console.log("[Soumini] Fin de combat");
+
+  const pjTemplateId = getPJTemplateId();
+  if (!pjTemplateId || !combat?.combatants) return;
+
+  for (const combatant of combat.combatants) {
+    const actor = getLiveActorFromCombatant(combatant);
+    if (!actor) continue;
+
+    if (isPJ(actor, pjTemplateId)) {
+      await actor.roll("end_battle", { postMessage: false });
+    }
+  }
 });

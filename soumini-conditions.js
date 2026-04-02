@@ -66,7 +66,7 @@ function setupIcons() {
 function setupConditions(){
     let BURN = {
         changes: [
-            { key: "brulures", mode: CONST.ACTIVE_EFFECT_MODES.CUSTOM, priority: 0, value: "${%{return entity.entity.appliedEffects.find(e => e.name === 'Brûlure')?.flags.statuscounter.value;}%}$ "},
+            { key: "brulures", mode: CONST.ACTIVE_EFFECT_MODES.CUSTOM, priority: 0, value: "${%{return entity.appliedEffects.find(e => e.name === 'Brûlure')?.flags.statuscounter.value?entity.appliedEffects.find(e => e.name === 'Brûlure')?.flags.statuscounter.value:1;}%}$"},
         ],
         name: "Brûlure",
         img: "icons/svg/fire.svg",
@@ -78,7 +78,7 @@ function setupConditions(){
     /////////////////////////////////////
     let POISON = {
         changes: [
-            { key: "poisons", mode: CONST.ACTIVE_EFFECT_MODES.CUSTOM, priority: 0, value: "${%{return entity.entity.appliedEffects.find(e => e.name === 'Poison')?.flags.statuscounter.value;}%}$"},
+            { key: "poisons", mode: CONST.ACTIVE_EFFECT_MODES.CUSTOM, priority: 0, value: "${%{return entity.appliedEffects.find(e => e.name === 'Poison')?.flags.statuscounter.value?entity.appliedEffects.find(e => e.name === 'Poison')?.flags.statuscounter.value:1;}%}$"},
         ],
         name: "Poison",
         img: "icons/svg/poison.svg",
@@ -90,7 +90,7 @@ function setupConditions(){
     /////////////////////////////////////
     let MALEDICTION = {
         changes: [
-            { key: "malediction", mode: CONST.ACTIVE_EFFECT_MODES.CUSTOM, priority: 0, value: "${%{return entity.entity.appliedEffects.find(e => e.name === 'Malédiction')?.flags.statuscounter.value;}%}$"},
+            { key: "malediction", mode: CONST.ACTIVE_EFFECT_MODES.CUSTOM, priority: 0, value: "${%{return entity.appliedEffects.find(e => e.name === 'Malédiction')?.flags.statuscounter.value?entity.appliedEffects.find(e => e.name === 'Malédiction')?.flags.statuscounter.value:1;}%}$"},
         ],
         name: "Malédiction",
         img: "icons/svg/stoned.svg",
@@ -102,7 +102,7 @@ function setupConditions(){
     /////////////////////////////////////
     let GEL = {
         changes: [
-            { key: "gels", mode: CONST.ACTIVE_EFFECT_MODES.CUSTOM, priority: 0, value: "${%{return entity.entity.appliedEffects.find(e => e.name === 'Gel')?.flags.statuscounter.value;}%}$"},
+            { key: "gels", mode: CONST.ACTIVE_EFFECT_MODES.CUSTOM, priority: 0, value: "${%{return entity.appliedEffects.find(e => e.name === 'Gel')?.flags.statuscounter.value?entity.appliedEffects.find(e => e.name === 'Gel')?.flags.statuscounter.value:1;}%}$"},
         ],
         name: "Gel",
         img: "icons/svg/frozen.svg",
@@ -114,7 +114,7 @@ function setupConditions(){
     /////////////////////////////////////
     let BLOOD = {
         changes: [
-            { key: "saignements", mode: CONST.ACTIVE_EFFECT_MODES.CUSTOM, priority: 0, value: "${%{return entity.entity.appliedEffects.find(e => e.name === 'Saignement')?.flags.statuscounter.value;}%}$"},
+            { key: "saignements", mode: CONST.ACTIVE_EFFECT_MODES.CUSTOM, priority: 0, value: "${%{return entity.appliedEffects.find(e => e.name === 'Saignement')?.flags.statuscounter.value?entity.appliedEffects.find(e => e.name === 'Saignement')?.flags.statuscounter.value:1;}%}$"},
         ],
         name: "Saignement",
         img: "icons/svg/blood.svg",
@@ -126,7 +126,7 @@ function setupConditions(){
     /////////////////////////////////////
     let SHIELD = {
         changes: [
-            { key: "barriere", mode: CONST.ACTIVE_EFFECT_MODES.CUSTOM, priority: 0, value: "${%{return entity.entity.appliedEffects.find(e => e.name === 'Barrière')?.flags.statuscounter.value;}%}$"},
+            { key: "barriere", mode: CONST.ACTIVE_EFFECT_MODES.CUSTOM, priority: 0, value: "${%{return entity.appliedEffects.find(e => e.name === 'Barrière')?.flags.statuscounter.value?entity.appliedEffects.find(e => e.name === 'Barrière')?.flags.statuscounter.value:1;}%}$"},
         ],
         name: "Barrière",
         img: "icons/svg/holy-shield.svg",
@@ -138,7 +138,7 @@ function setupConditions(){
     /////////////////////////////////////
     let CHARMED = {
         changes: [
-            { key: "charmes", mode: CONST.ACTIVE_EFFECT_MODES.CUSTOM, priority: 0, value: "${%{return entity.entity.appliedEffects.find(e => e.name === 'Charme')?.flags.statuscounter.value;}%}$"},
+            { key: "charmes", mode: CONST.ACTIVE_EFFECT_MODES.CUSTOM, priority: 0, value: "${%{return entity.appliedEffects.find(e => e.name === 'Charme')?.flags.statuscounter.value?entity.appliedEffects.find(e => e.name === 'Charme')?.flags.statuscounter.value:1;}%}$"},
         ],
         name: "Charme",
         img: "icons/svg/sun.svg",
@@ -150,7 +150,7 @@ function setupConditions(){
     /////////////////////////////////////
     let SLEEP = {
         changes: [
-            { key: "fatigue", mode: CONST.ACTIVE_EFFECT_MODES.CUSTOM, priority: 0, value: "${%{return entity.entity.appliedEffects.find(e => e.name === 'Fatigue')?.flags.statuscounter.value;}%}$"},
+            { key: "fatigue", mode: CONST.ACTIVE_EFFECT_MODES.CUSTOM, priority: 0, value: "${%{return entity.appliedEffects.find(e => e.name === 'Fatigue')?.flags.statuscounter.value?entity.appliedEffects.find(e => e.name === 'Fatigue')?.flags.statuscounter.value:1;}%}$"},
         ],
         name: "Fatigue",
         img: "icons/svg/unconscious.svg",
