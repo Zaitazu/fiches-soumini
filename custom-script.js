@@ -60,6 +60,11 @@ Hooks.on("combatStart", async (combat) => {
 });
 
 /* ------------------------------------ */
+/* State                                */
+/* ------------------------------------ */
+let lastProcessedTurnKey = null;
+
+/* ------------------------------------ */
 /* Combat turn change                   */
 /* ------------------------------------ */
 Hooks.on("combatTurnChange", async (combat, prior, current) => {
@@ -78,13 +83,28 @@ Hooks.on("combatTurnChange", async (combat, prior, current) => {
     return;
   }
 
+  const turnKey = [
+    combat.id,
+    combat.round,
+    combat.turn,
+    combatant.id
+  ].join("|");
+
+  if (lastProcessedTurnKey === turnKey) {
+    console.log("[Soumini] Tour déjà traité, on ignore :", turnKey);
+    return;
+  }
+
+  lastProcessedTurnKey = turnKey;
+
   console.log("[Soumini] Tour détecté", {
     round: combat.round,
     turn: combat.turn,
     combatantId: combatant.id,
     tokenId: combatant.tokenId,
     actorId: actor.id,
-    actorName: actor.name
+    actorName: actor.name,
+    turnKey
   });
 
   if (isPJ(actor, pjTemplateId)) {
@@ -102,7 +122,14 @@ Hooks.on("combatTurnChange", async (combat, prior, current) => {
     const currentCombat = game.combat;
     if (!currentCombat?.combatant) return;
 
-    if (currentCombat.combatant.id !== combatant.id) return;
+    const currentTurnKey = [
+      currentCombat.id,
+      currentCombat.round,
+      currentCombat.turn,
+      currentCombat.combatant.id
+    ].join("|");
+
+    if (currentTurnKey !== turnKey) return;
 
     const freshActor = getLiveActorFromCombatant(currentCombat.combatant);
     if (!freshActor) return;
@@ -115,10 +142,11 @@ Hooks.on("combatTurnChange", async (combat, prior, current) => {
 });
 
 /* ------------------------------------ */
-/* Combat end                           */
+/* Combat end / reset anti-doublon      */
 /* ------------------------------------ */
 Hooks.on("preDeleteCombat", async (combat) => {
   console.log("[Soumini] Fin de combat");
+  lastProcessedTurnKey = null;
 
   const pjTemplateId = getPJTemplateId();
   if (!pjTemplateId || !combat?.combatants) return;
