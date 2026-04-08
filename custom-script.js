@@ -315,54 +315,40 @@ if (globalThis.__souminiHooksRegistered) {
     }, 200);
   });
 
-  /* ------------------------------------ */
-  /* Combat end                           */
-  /* ------------------------------------ */
-  Hooks.on("preDeleteCombat", async (combat) => {
-    console.log("[Soumini] Fin de combat reçue", {
-      clientInstanceId: CLIENT_INSTANCE_ID,
-      userName: game.user?.name,
-      isGM: game.user?.isGM
-    });
+  function getMainGM() {
+  return game.users
+    .filter(u => u.active && u.isGM)
+    .sort((a, b) => a.id.localeCompare(b.id))[0] ?? null;
+}
 
-    if (!canParticipateInClaim()) return;
+function isMainGMClient() {
+  const mainGM = getMainGM();
+  return !!mainGM && game.user?.id === mainGM.id;
+}
 
-    const lifecycleKey = getLifecycleKey(combat, "preDeleteCombat");
-    const alreadyProcessed = combat.getFlag(MODULE_ID, "lastCombatEndKey");
-    if (alreadyProcessed === lifecycleKey) {
-      console.log("[Soumini] preDeleteCombat déjà traité, on ignore :", lifecycleKey);
-      return;
-    }
-
-    const iWon = await claimExecution(combat, "lifecycleClaim", lifecycleKey);
-    if (!iWon) return;
-
-    const processedAfterClaim = combat.getFlag(MODULE_ID, "lastCombatEndKey");
-    if (processedAfterClaim === lifecycleKey) {
-      console.log("[Soumini] preDeleteCombat déjà traité après claim :", lifecycleKey);
-      return;
-    }
-
-    await combat.setFlag(MODULE_ID, "lastCombatEndKey", lifecycleKey);
-
-    console.log("[Soumini] Fin de combat exécutée par ce client", {
-      lifecycleKey,
-      clientInstanceId: CLIENT_INSTANCE_ID,
-      userName: game.user?.name
-    });
-
-    const pjTemplateId = getPJTemplateId();
-    if (!pjTemplateId || !combat?.combatants) return;
-
-    for (const combatant of combat.combatants) {
-      const actor = getLiveActorFromCombatant(combatant);
-      if (!actor) continue;
-
-      if (isPJ(actor, pjTemplateId)) {
-        await actor.roll("end_battle", { postMessage: false });
-      }
-    }
-
-    await resetCombatLocks(combat);
+/* ------------------------------------ */
+/* Combat end                           */
+/* ------------------------------------ */
+Hooks.on("preDeleteCombat", async (combat) => {
+  console.log("[Soumini] Fin de combat reçue", {
+    clientInstanceId: CLIENT_INSTANCE_ID,
+    userName: game.user?.name,
+    isGM: game.user?.isGM
   });
+
+  if (!canParticipateInClaim()) return;
+  if (!isMainGMClient()) return;
+
+  const pjTemplateId = getPJTemplateId();
+  if (!pjTemplateId || !combat?.combatants) return;
+
+  for (const combatant of combat.combatants) {
+    const actor = getLiveActorFromCombatant(combatant);
+    if (!actor) continue;
+
+    if (isPJ(actor, pjTemplateId)) {
+      await actor.roll("end_battle", { postMessage: false });
+    }
+  }
+});
 }
