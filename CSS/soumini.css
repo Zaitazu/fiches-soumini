@@ -1,3 +1,33 @@
+.content-link, .inline-roll{
+  background : rgb(0 0 0 / 0%);
+}
+
+/* =========================================================
+   INITIATIVE CARD
+========================================================= */
+.soumini-init-name {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.soumini-init-total {
+  font-size: 1.25em;
+  font-weight: 700;
+}
+
+.soumini-init-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4px 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+}
+
 /* =========================================================
    BASE : CARTES
 ========================================================= */

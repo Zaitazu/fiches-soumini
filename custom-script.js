@@ -9,9 +9,51 @@ Hooks.once("setup", async function () {
 });
 
 Hooks.once("customSystemBuilderReady", () => {
-  game.settings.set(game.system.id, "initFormula", "vit");
+  game.settings.set(game.system.id, "initFormula", "!vit");
 });
 
+Hooks.on("renderChatMessageHTML", (message, html) => {
+  if (!message?.flags?.core?.initiativeRoll) return;
+
+  html.classList.add("soumini-init-message");
+
+  const speaker = message.speaker?.alias || "Inconnu";
+  const combat = game.combat;
+  if (!combat) return;
+
+  let combatant = null;
+
+  if (message.speaker?.token) {
+    combatant = combat.combatants.find(c => c.tokenId === message.speaker.token);
+  }
+
+  if (!combatant && message.speaker?.actor) {
+    combatant = combat.combatants.find(c => c.actor?.id === message.speaker.actor);
+  }
+
+  const initiative = combatant?.initiative ?? "—";
+
+  // Supprime le flavor natif où qu'il soit
+  html.querySelectorAll(".flavor-text, .dice-flavor, .message-flavor").forEach(el => el.remove());
+
+  const messageContent = html.querySelector(".message-content");
+  if (!messageContent) return;
+
+  // Supprime tout le contenu natif restant
+  messageContent.replaceChildren();
+
+  // Reconstruit uniquement le rendu voulu
+  const row = document.createElement("div");
+  row.className = "soumini-init-row";
+  row.innerHTML = `
+    <span class="soumini-init-name">
+      <i class="fa-solid fa-bolt"></i> Initiative - ${speaker}
+    </span>
+    <span class="soumini-init-total">${initiative}</span>
+  `;
+
+  messageContent.appendChild(row);
+});
 /* ------------------------------------ */
 /* Utils                                */
 /* ------------------------------------ */

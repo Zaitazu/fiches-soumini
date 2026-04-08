@@ -37,12 +37,13 @@ const FS_PAUSE_VERT     = "12vmin";
   style.textContent = css;
   document.head.appendChild(style);
 
-  // 3) Preload the image ASAP so it’s ready when pause overlay shows
-  const link = document.createElement("link");
-  link.rel = "preload";
-  link.as = "image";
-  link.href = FS_PAUSE_LOGO_URL;
-  document.head.appendChild(link);
+  // 3) Prefetch the image (without preload warning) + avoid duplicates
+  if (!document.querySelector(`link[href="${FS_PAUSE_LOGO_URL}"]`)) {
+    const link = document.createElement("link");
+    link.rel = "prefetch";
+    link.href = FS_PAUSE_LOGO_URL;
+    document.head.appendChild(link);
+  }
 })();
 
 // 4) Safety: re-inject if a theme nukes <head> styles late (rare)
